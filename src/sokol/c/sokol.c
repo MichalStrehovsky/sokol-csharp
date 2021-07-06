@@ -5,6 +5,9 @@
 
 #ifdef NO_CRT
 #define _NO_CRT_STDIO_INLINE
+
+// We don't expose the printf anyway
+#define SOKOL_VSNPRINTF(X,...) 0
 #endif
 
 #include "sokol_defines.h"
