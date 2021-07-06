@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>0.0.1</Version>
+    <PackageVersion>0.0.1</PackageVersion>
+    <Authors>Michal Strehovsky &amp; Others</Authors>
+    <PackProject>true</PackProject>
+    <PackageLicenseExpression>Zlib</PackageLicenseExpression>
+    <Title>Sokol_csharp.Unofficial</Title>
+    <Description>C# bindings for Sokol - minimal cross-platform standalone C headers</Description>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/MichalStrehovsky/sokol-csharp</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="runtimes/**" Link="runtimes/%(RecursiveDir)/%(Filename)%(Extension)" Exclude="runtimes/**/*.pdb" >
+      <PackagePath>runtimes/</PackagePath>
+      <Pack>true</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
