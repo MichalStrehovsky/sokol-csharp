@@ -3,7 +3,9 @@
 #define SOKOL_DLL
 #endif
 
+#ifdef NO_CRT
 #define _NO_CRT_STDIO_INLINE
+#endif
 
 #include "sokol_defines.h"
 #include "sokol_app.h"
@@ -53,6 +55,7 @@ SOKOL_API_IMPL sg_context_desc sapp_sgcontext(void) {
     return desc;
 }
 
+#ifdef NO_CRT
 #ifndef BFLAT_LIB
 int _fltused=0;
 #endif
@@ -63,3 +66,4 @@ FILE* __acrt_iob_func(unsigned num)
 {
     return __iob_func()[num];
 }
+#endif
