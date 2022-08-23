@@ -21,6 +21,6 @@ cl /MT /DNO_CRT /EHs-c- /GR- /LD /Zi /GS- /O1 /Gs8192 sokol.c /link /opt:ref,icf
 On Windows, to build a static library suitable to be used with [bflat](https://github.com/bflattened/bflat), run:
 
 ```console
-cl /DNO_CRT /DBFLAT_LIB /c /EHs-c- /GR- /Zi /Zl /GS- /O1 /Fdsokol.pdb /Gs8192 sokol.c
+cl /DNO_CRT /DBFLAT_LIB /c /EHs-c- /GR- /Z7 /Zl /GS- /O1 /Fdsokol.pdb /Gs8192 sokol.c
 lib sokol.obj
 ```
