@@ -15,14 +15,12 @@ I'm building this without annoying CRT dependencies (`#define NO_CRT`), but you 
 On Windows, to build a shared library you can run:
 
 ```console
-$ cl /DNO_CRT /EHs-c- /GR- /LD /Zi /Zl /GS- /O1 /Gs8192 sokol.c /link path_to_your\msvcrt.lib /noentry /opt:ref,icf
+cl /MT /DNO_CRT /EHs-c- /GR- /LD /Zi /GS- /O1 /Gs8192 sokol.c /link /opt:ref,icf /NODEFAULTLIB:libucrt.lib /DEFAULTLIB:ucrt.lib
 ```
 
-You can grab a msvcrt.lib from e.g. https://github.com/neosmart/msvcrt.lib.
-
-On Windows, to build a static library suitable to be used with [bflat](https://github.com/MichalStrehovsky/bflat), run:
+On Windows, to build a static library suitable to be used with [bflat](https://github.com/bflattened/bflat), run:
 
 ```console
-cl /DNO_CRT /DBFLAT_LIB /c /EHs-c- /GR- /Zi /Zl /GS- /O1 /Gs8192 sokol.c
+cl /DNO_CRT /DBFLAT_LIB /c /EHs-c- /GR- /Zi /Zl /GS- /O1 /Fdsokol.pdb /Gs8192 sokol.c
 lib sokol.obj
 ```

@@ -4,8 +4,6 @@
 #endif
 
 #ifdef NO_CRT
-#define _NO_CRT_STDIO_INLINE
-
 // We don't expose the printf anyway
 #define SOKOL_VSNPRINTF(X,...) 0
 #endif
@@ -57,16 +55,3 @@ SOKOL_API_IMPL sg_context_desc sapp_sgcontext(void) {
     desc.wgpu.depth_stencil_view_cb = sapp_wgpu_get_depth_stencil_view;
     return desc;
 }
-
-#ifdef NO_CRT
-#ifndef BFLAT_LIB
-int _fltused=0;
-#endif
-
-FILE** __iob_func();
-
-FILE* __acrt_iob_func(unsigned num)
-{
-    return __iob_func()[num];
-}
-#endif
